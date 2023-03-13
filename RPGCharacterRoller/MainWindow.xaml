@@ -23,6 +23,62 @@
         <TextBlock HorizontalAlignment="Left" Margin="99,143,0,0" TextWrapping="Wrap" Text="CHR" VerticalAlignment="Top"/>
         <TextBlock x:Name="textCharisma" HorizontalAlignment="Left" Margin="135,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <Button x:Name="buttonReroll" Content="Reroll" HorizontalAlignment="Left" Margin="169,181,0,0" VerticalAlignment="Top" Height="25" Width="101" Click="buttonReroll_Click"/>
+        <ListBox x:Name="listPotentialMembers" Margin="290,81,320,225">
+            <ListBoxItem Background="#FFF39BE0" Content="Kirby"/>
+            <ListBoxItem Content="King Dedede">
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF93232"/>
+                        <GradientStop Color="#FF3559ED" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background>
+            </ListBoxItem>
+            <ListBoxItem Content="Meta Knight">
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB1B1B1"/>
+                        <GradientStop Color="#FF4D1296" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background>
+            </ListBoxItem>
+            <ListBoxItem Content="Bandana Waddle Dee">
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCE661D" Offset="0.355"/>
+                        <GradientStop Color="#FFFBD081" Offset="1"/>
+                        <GradientStop Color="#FF1650C3" Offset="0"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background>
+            </ListBoxItem>
+            <ListBoxItem Content="Pikachu" Background="#FFF5DE43"/>
+            <ListBoxItem Content="Bulbasaur">
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF125633"/>
+                        <GradientStop Color="#FF4FA779" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background>
+            </ListBoxItem>
+            <ListBoxItem Content="Charmander">
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF1862C" Offset="0.327"/>
+                        <GradientStop Color="#FFD6BC97" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background>
+            </ListBoxItem>
+            <ListBoxItem Content="Squirtle">
+                <ListBoxItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6AC4F3" Offset="0.495"/>
+                        <GradientStop Color="#FFEFD4AC" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBoxItem.Background>
+            </ListBoxItem>
+        </ListBox>
+        <TextBlock HorizontalAlignment="Left" Margin="290,60,0,0" TextWrapping="Wrap" Text="Potential Party Mambers" VerticalAlignment="Top"/>
+        <ListBox x:Name="listPartyMembers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="525,81,85,225"/>
+        <TextBlock HorizontalAlignment="Left" Margin="525,60,0,0" TextWrapping="Wrap" Text="Party Members" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
