@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace RPGCharacterRoller
 {
@@ -22,9 +24,9 @@ namespace RPGCharacterRoller
         private int _maxStrength = 20;
         private int _maxWisdom = 20;
         private List<RPGCharacter> __partyMembers = new List<RPGCharacter>();
-
+        private Brush _favoriteColor;
         private CharacterClasses _characterClass = CharacterClasses.None;
-        private Random _rpg = new Random();
+        private Random _rng = new Random();
 
         #region Properties
         public string Name { get; set; }
@@ -40,6 +42,11 @@ namespace RPGCharacterRoller
             get { return __partyMembers; }
             set { __partyMembers = value; }
         }
+        public Brush FavoriteColor
+        {
+            get { return _favoriteColor; }
+            set { _favoriteColor = value; } 
+        }
         public int Strength { get { return _strength; } }
         public int Intelligence { get { return _intelligence; } }
         public int Wisdom { get { return _wisdom; } }
@@ -48,18 +55,33 @@ namespace RPGCharacterRoller
         public int Charisma { get { return _charisma; } }
         #endregion
 
-        public RPGCharacter()
+
+        public RPGCharacter(Random rng)
         {
+            _rng = rng;
             Roll();
         }
+
         public void Roll()
         {
-            _charisma = _rpg.Next(1, _maxCharisma + 1);
-            _dexterity = _rpg.Next(1, _maxDexterity + 1);
-            _intelligence = _rpg.Next(1, _maxIntelligence + 1);
-            _stamina = _rpg.Next(1, _maxStamina + 1);
-            _strength = _rpg.Next(1, _maxStrength + 1);
-            _wisdom = _rpg.Next(1, _maxWisdom + 1);
+            _charisma = _rng.Next(1, _maxCharisma + 1);
+            _dexterity = _rng.Next(1, _maxDexterity + 1);
+            _intelligence = _rng.Next(1, _maxIntelligence + 1);
+            _stamina = _rng.Next(1, _maxStamina + 1);
+            _strength = _rng.Next(1, _maxStrength + 1);
+            _wisdom = _rng.Next(1, _maxWisdom + 1);
+        }
+
+        public static int RollDice(int numberOfDice, int sidesPerDice, Random r)
+        {
+            int total = 0;
+
+            for (int i = 0; i < numberOfDice; i++)
+            {
+                total = total + r.Next(1,sidesPerDice + 1);
+            }
+
+            return total;
         }
     }
     public enum CharacterClasses

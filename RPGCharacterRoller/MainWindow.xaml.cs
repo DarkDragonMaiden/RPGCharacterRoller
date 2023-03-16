@@ -21,18 +21,19 @@ namespace RPGCharacterRoller
     /// </summary>
     public partial class MainWindow : Window
     {
-        private RPGCharacter _character = new RPGCharacter();
+        private RPGCharacter _character;
         private Random _rng = new Random();
         public MainWindow()
         {
             InitializeComponent();
+            _character = new RPGCharacter(_rng);
             updateStats();
-
-            RPGCharacter c1 = new RPGCharacter() { Name = "Character 1" };
-            RPGCharacter c2 = new RPGCharacter() { Name = "C2" };
-            _character.PartyMembers.Add(c1);
-            _character.PartyMembers.Add(c2);
-
+            string junk = "";
+            for (int i = 0; i < 10; i++)
+            {
+                junk += $"{RPGCharacter.RollDice(5, 20, _rng).ToString()}\n";
+            }
+            MessageBox.Show(junk);
         }
 
         private void buttonUpdateName_Click(object sender, RoutedEventArgs e)
@@ -53,7 +54,7 @@ namespace RPGCharacterRoller
             {
                 if (_rng.NextDouble() > odds)
                 {
-                    RPGCharacter c = new RPGCharacter()
+                    RPGCharacter c = new RPGCharacter(_rng)
                     {
                         Name = i.Content.ToString()
                     };
@@ -61,10 +62,32 @@ namespace RPGCharacterRoller
                     Thread.Sleep(10);
                 }
             }
+
+            //Junk test code
+            if (_character.PartyMembers.Count > 0)
+            {
+                _character.PartyMembers[0].FavoriteColor = Brushes.HotPink;
+            }
+
+            Brush color1 = Brushes.LightBlue;
+            Brush color2 = Brushes.LightGreen;
+
             listPartyMembers.Items.Clear();
             foreach (RPGCharacter c in _character.PartyMembers)
             {
                 ListBoxItem i = new ListBoxItem();
+                if (c.FavoriteColor != null)
+                {
+                    i.Background = c.FavoriteColor;
+                }
+                else if(listPartyMembers.Items.Count % 2 == 0)
+                {
+                    i.Background = color1;
+                }
+                else
+                {
+                    i.Background = color2;
+                }
                 i.Content = $"{c.Name} STR: {c.Strength} INT: {c.Intelligence}";
                 listPartyMembers.Items.Add(i);
             }

@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RPGCharacterRoller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="RPG Character Roller" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF80E2DB" Offset="0.568"/>
+                <GradientStop Color="#FF2FFF6C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="40,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="40,36,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonUpdateName" Content="Update Name" HorizontalAlignment="Left" Margin="40,181,0,0" VerticalAlignment="Top" Width="101" Click="buttonUpdateName_Click" Height="25"/>

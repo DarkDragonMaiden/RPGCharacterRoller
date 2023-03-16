@@ -95,5 +95,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kirbys-return-to-dream-land-deluxe-feat.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scroll.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
